@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block main-content %}
+<div class="container" style="padding:12%;">
+ <div class="row my-3" >
+  <div class="col-sm-6 offset-sm-3">
+    <div>
+   <h3>Login</h3>
+   <hr>
+   <form action="" method="post"  class="shadow p-5">
+    {% csrf_token %}
+
+    <div class="alert alert-{{class}}">
+        {{message}}
+    </div>
+    <div class="mb-3">
+     <label for="exampleInputEmail1" class="form-label">Email</label>
+     <input type="text" placeholder="Email" class="form-control" name="email" id="email" required>
+    </div>
+    
+    {% comment %} <small><a href="#">Forgot Password ?</a></small> <br> {% endcomment %}
+    <input type="submit" class="btn btn-primary mt-4" value="Login">
+    <br>
+    <div class="text-center text-primary fw-bold"><small>New to Shopsy ? <a href="{% url 'register' %}"
+       class="text-danger">Create an Account</a> </small></div>
+   </form>
+    </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

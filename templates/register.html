@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Customer Registration{% endblock title %}
+{% block main-content %}
+<div class="container" style="padding:7.9%";>
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Customer Registration</h3>
+   <hr>
+
+
+         <form  method="post"  class="shadow p-5">
+            {% csrf_token %}
+
+            {% if message %}
+            <div class="alert alert-{{class}}">
+               {{message}}
+            </div>
+            {% endif %}  
+
+            <div class="mb-3">
+               <label  class="form-label">Email</label>
+               <input type="text" placeholder="Email" class="form-control" name="email" id="email" required> 
+            </div>
+
+            <div class="mb-3">
+               <label  class="form-label">Username</label>
+               <input type="text" placeholder="Username" class="form-control" name="username" id="username" required>
+               
+            </div>
+            
+
+            <div class="mb-3">
+            <label  class="form-label">Mobile</label>
+            <input type="text" placeholder="Mobile" class="form-control" name="mobile" id="mobile" required>
+            </div>
+
+            <br>
+            <p>Already have account <a href="{% url 'login' %}">Login</a></p>
+            <button class="btn btn-primary">Submit</button>
+         </form>
+
+
+   </div>
+ </div>
+</div>
+{% endblock main-content %}
